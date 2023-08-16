@@ -9,5 +9,4 @@ public class AccountsOverviewPage {
         this.navegador = navegador;
     }
 
-
 }

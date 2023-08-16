@@ -1,6 +1,4 @@
 package Paginas;
-
-import net.bytebuddy.asm.Advice;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -15,6 +13,7 @@ public class LoginPage {
         navegador.findElement(By.cssSelector("input[name='username']")).sendKeys(userName);
         return this;
     }
+
     public LoginPage informarPassword(String password){
         navegador.findElement(By.cssSelector("input[name='password']")).sendKeys(password);
         return this;
