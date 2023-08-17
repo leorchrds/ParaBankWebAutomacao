@@ -1,10 +1,7 @@
 package Modulos.login;
 import Paginas.LoginPage;
 import Paginas.RegisterPage;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -24,7 +21,7 @@ public class LoginTest {
     @Test
     public void testRegistrarUmUsuario(){
 
-        new RegisterPage(navegador)
+       String capturarMensagem = new RegisterPage(navegador)
                 .submeterAPaginaDeRegistro()
                 .informarFirstName("leonardo")
                 .informarLastName("richard")
@@ -37,16 +34,23 @@ public class LoginTest {
                 .informarUsername("userName")
                 .informarPassword("passWord")
                 .informarRepeatedPassword("passWord")
-                .submeterOFormularioDeRegistroDoUsuario();
+                .submeterOFormularioDeRegistroDoUsuario()
+                .capturarMensagem();
+
+       Assertions.assertEquals("Your account was created successfully. You are now logged in." ,capturarMensagem);
     }
 
     @Test
     @DisplayName("teste fazendo login com usuario cadastrado")
     public void testLoginComUsuarioRegistrado(){
-        new LoginPage(navegador)
+       String capturarMensagem = new LoginPage(navegador)
                 .informarUserName("userName")
                 .informarPassword("passWord")
-                .submeterFormularioDeLoginDoUsuario();
+                .submeterFormularioDeLoginDoUsuario()
+                .capturarMensagem();
+
+        Assertions.assertEquals("Accounts Overview",capturarMensagem );
+
     }
 
     @AfterEach

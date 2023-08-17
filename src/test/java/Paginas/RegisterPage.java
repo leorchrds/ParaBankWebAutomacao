@@ -71,9 +71,9 @@ public class RegisterPage {
         return this;
     }
 
-    public LoginPage submeterOFormularioDeRegistroDoUsuario(){
+    public WelcomePage submeterOFormularioDeRegistroDoUsuario(){
         navegador.findElement(By.cssSelector("input[value='Register']")).click();
-        return new LoginPage(navegador);
+        return new WelcomePage(navegador);
     }
 
 }

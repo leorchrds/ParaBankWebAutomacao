@@ -1,5 +1,6 @@
 package Paginas;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class AccountsOverviewPage {
@@ -9,4 +10,7 @@ public class AccountsOverviewPage {
         this.navegador = navegador;
     }
 
+    public String capturarMensagem(){
+        return navegador.findElement(By.cssSelector("h1[class='title']")).getText();
+    }
 }
